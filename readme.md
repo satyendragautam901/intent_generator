@@ -37,4 +37,5 @@ cd intent-generator
 http://127.0.0.1:8000/ # go to this url 
 ```
 
-
+### Note: 
+The backend is designed to integrate with Azure OpenAI API. Since authentication requires a valid subscription, I implemented a fallback dummy intent generator so that the full flow (input → backend → frontend) can be demonstrated without external dependencies.
