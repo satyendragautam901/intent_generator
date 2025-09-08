@@ -20,21 +20,21 @@ def get_intents(request):
             keyword = data.get("word", "")
             print(" Received keyword:", keyword) 
 
-            # if assess_keyword_clarity(keyword):
-            #     intents = [keyword] + get_intent_options(keyword)[:6]
-            # else:
-            #     intents = get_intent_options(keyword)[:7]
+            if assess_keyword_clarity(keyword):
+                intents = [keyword] + get_intent_options(keyword)[:6]
+            else:
+                intents = get_intent_options(keyword)[:7]
 
             # Instead of calling Azure/OpenAI, I use dummy intents
-            intents = [
-                f"Search info about {keyword}",
-                f"Define {keyword}",
-                f"Translate {keyword}",
-                f"Use cases of {keyword}",
-                f"Compare {keyword} with others",
-                f"Examples of {keyword}",
-                f"History of {keyword}"
-            ]
+            # intents = [
+            #     f"Search info about {keyword}",
+            #     f"Define {keyword}",
+            #     f"Translate {keyword}",
+            #     f"Use cases of {keyword}",
+            #     f"Compare {keyword} with others",
+            #     f"Examples of {keyword}",
+            #     f"History of {keyword}"
+            # ]
 
 
             return JsonResponse({"intents": intents})
